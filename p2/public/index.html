@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header class="header">
+            <h1>
+                <i class="fas fa-car"></i>
+                Салон Porsche
+            </h1>
+            <p class="subtitle">Управление автомобилями</p>
+        </header>
+
+        <!-- Форма добавления товара -->
+        <div class="add-product-card">
+            <h2><i class="fas fa-plus-circle"></i> Добавить новый автомобиль</h2>
+            <form id="addProductForm" class="add-form">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="productName" 
+                        placeholder="Название модели"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        type="number" 
+                        id="productPrice" 
+                        placeholder="Цена ($)"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Добавить
+                </button>
+            </form>
+        </div>
+
+        <!-- Список товаров -->
+        <div class="products-header">
+            <h2><i class="fas fa-box"></i> Каталог Porsche</h2>
+            <div class="stats" id="stats">
+                <span class="stat-item">
+                    <i class="fas fa-car"></i>
+                    Всего моделей: <span id="totalProducts">0</span>
+                </span>
+                <span class="stat-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    Общая стоимость: $<span id="totalPrice">0.00</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Таблица товаров -->
+        <div class="table-container">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Модель</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="productsList">
+                    <!-- Товары будут добавляться сюда через JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Модальное окно для редактирования -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-edit"></i> Редактировать модель</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <form id="editForm" class="modal-form">
+                    <input type="hidden" id="editId">
+                    <div class="form-group">
+                        <label for="editName">Название модели:</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPrice">Цена ($):</label>
+                        <input type="number" id="editPrice" min="0" step="0.01" required>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> Сохранить
+                        </button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">
+                            <i class="fas fa-times"></i> Отмена
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
