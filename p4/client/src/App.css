@@ -209,14 +209,17 @@ h1 {
 
 .modal form { display: flex; flex-direction: column; gap: 15px; }
 
-.modal input, .modal textarea {
-  background: #0f172a;
-  border: 1px solid #334155;
-  padding: 12px 16px;
-  border-radius: 10px;
+.modal input, .modal textarea, .auth-modal input {
+  background: #0a0a0a;
+  border: 1px solid #262626;
+  padding: 20px 24px; 
+  border-radius: 12px; 
   color: white;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.2rem; 
+  transition: border-color 0.2s;
+  box-sizing: border-box; 
+  width: 100%;
 }
 .modal input:focus, .modal textarea:focus {
   outline: none; border-color: #8b5cf6;
@@ -227,3 +230,69 @@ h1 {
 }
 .btn-secondary { background: #334155; color: white; }
 .btn-secondary:hover { background: #475569; }
+/* --- Стили для Авторизации и Шапки --- */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #262626;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.95rem;
+  color: #a3a3a3;
+}
+
+.user-profile span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.auth-modal {
+  background: #171717;
+  width: 100%;
+  max-width: 400px;
+  padding: 80px 60px;
+  border-radius: 20px;
+  border: 1px solid #333;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.auth-modal h2 { margin-top: 0; margin-bottom: 30px; color: white; }
+
+.auth-modal form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+
+.auth-switch {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #737373;
+}
+
+.auth-switch span {
+  color: #ededed;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
